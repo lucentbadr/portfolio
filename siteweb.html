@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badr Eddin Ouniceur - Portfolio</title>
+    <!-- Rbte FontAwesome bach njibo رموز n9iyin PROFESSIONNEL (Symbols) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- L'CODE DIAL CSS -->
+    <style>
+        :root {
+            --midnight: #001F3F; 
+            --casse: #FAF9F6;   
+            --accent: #DAA520;   
+            --text-dark: #1a1a1a;
+            --text-light: #ecf0f1;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--midnight);
+            color: var(--text-dark);
+            padding: 20px;
+            animation: slideUpFade 0.8s ease-out;
+        }
+
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 5px var(--accent); }
+            50% { box-shadow: 0 0 20px rgba(218, 165, 32, 0.6); }
+            100% { box-shadow: 0 0 5px var(--accent); }
+        }
+
+        .lang-selector {
+            text-align: right;
+            max-width: 1100px;
+            margin: 0 auto 30px auto;
+        }
+
+        .lang-selector button {
+            background-color: transparent;
+            color: var(--casse);
+            border: 2px solid var(--casse);
+            padding: 10px 20px;
+            margin-left: 10px;
+            border-radius: 5px; 
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lang-selector button:hover {
+            background-color: var(--accent);
+            color: var(--midnight);
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .container {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--casse);
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+            overflow: hidden;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            background-color: rgba(0, 31, 63, 0.95); 
+            color: var(--casse);
+            width: 320px;
+            padding: 40px 25px;
+            text-align: center;
+            border-right: 3px solid var(--accent); 
+        }
+
+        .logo {
+            width: 75px;
+            height: 75px;
+            background-color: var(--casse);
+            border: 4px solid var(--accent);
+            color: var(--midnight);
+            border-radius: 8px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 auto 30px auto;
+            position: relative;
+            transform: rotate(-10deg);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        .logo::before { 
+            content: '</>';
+            font-family: monospace;
+            position: absolute;
+            bottom: 3px;
+            right: 5px;
+            font-size: 10px;
+            color: var(--accent);
+        }
+
+        .profile-pic {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-pic img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--accent); 
+            object-fit: cover;
+            background-color: var(--midnight);
+            transition: var(--transition);
+            animation: pulseGlow 3s infinite ease-in-out;
+            display: block;
+        }
+        
+        .name {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--casse);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .role {
+            font-size: 13px;
+            color: #bdc3c7; 
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .contact-info, .social-media {
+            text-align: left;
+            margin-bottom: 40px;
+            padding-left: 10px;
+        }
+
+        .contact-info h3, .social-media h3 {
+            color: var(--casse);
+            border-bottom: 2px solid var(--accent); 
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .contact-info p, .social-media a {
+            font-size: 14px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-media a:hover {
+            color: var(--accent);
+            transform: translateX(8px); 
+        }
+
+        .contact-info i, .social-media i {
+            width: 25px;
+            text-align: center;
+            margin-right: 15px;
+            font-size: 16px;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .social-media a:hover i {
+            transform: scale(1.2);
+        }
+
+        .content {
+            flex: 1;
+            padding: 60px 50px;
+            background-color: var(--casse); 
+        }
+
+        .card {
+            margin-bottom: 40px;
+            background: #ffffff; 
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid transparent; 
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left-color: var(--midnight); 
+        }
+
+        .card h2 {
+            color: var(--midnight); 
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card h2 i {
+            color: var(--accent);
+            margin-right: 15px;
+            font-size: 22px;
+        }
+
+        .card p {
+            line-height: 1.8;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        .about-tags {
+            margin-top: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--midnight);
+            font-size: 14px;
+        }
+
+        .about-tags span {
+            color: var(--accent);
+            margin: 0 8px;
+        }
+
+        .timeline-item {
+            border-left: 3px solid var(--accent); 
+            padding-left: 25px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            border: 3px solid var(--casse);
+        }
+
+        .timeline-item h4 {
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .goals-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .goals-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .goals-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        .portfolio-signature {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed rgba(0, 31, 63, 0.15);
+        }
+
+        .portfolio-signature p {
+            font-size: 13px;
+            color: #666;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .portfolio-signature span {
+            color: var(--midnight);
+            font-weight: 700;
+        }
+
+        @media (max-width: 850px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 3px solid var(--accent);
+                padding: 40px 20px;
+            }
+            .content {
+                padding: 40px 20px;
+            }
+            .lang-selector {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .lang-selector button {
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- L'botounat bach tbeddel l'logha -->
+    <div class="lang-selector">
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('fr')">Français</button>
+        <button onclick="changeLanguage('darija')">Darija</button>
+    </div>
+
+    <div class="container">
+        <!-- Jnb L'isser -->
+        <aside class="sidebar">
+            <div class="logo">BEO</div>
+
+            <div class="profile-pic">
+                <!-- Tswira b ism badr.jpg f l'dawra sefra -->
+                <img src="badr.jpg.jpeg" alt="Badr Eddin Ouniceur">
+            </div>
+            <h1 class="name">Badr Eddin Ouniceur</h1>
+            <p class="role" id="header-role">Student in Automotive Engineering & Computer Science</p>
+            
+            <div class="contact-info">
+                <h3 id="contact-title">Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> personalbadr2@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +212 638 56 72 71</p>
+            </div>
+
+            <div class="social-media">
+                <h3 id="social-title">Social Media</h3>
+                <a href="https://instagram.com/lucentbadr" target="_blank"><i class="fab fa-instagram"></i> @lucentbadr</a>
+                <a href="https://github.com/lucentbadr" target="_blank"><i class="fab fa-github"></i> lucentbadr</a>
+                <a href="https://x.com/lucentbadr" target="_blank"><i class="fab fa-twitter"></i> @lucentbadr</a>
+            </div>
+        </aside>
+
+        <!-- Jnb Limen -->
+        <main class="content">
+            <!-- Section About Me -->
+            <section class="card">
+                <h2><i class="fas fa-user-tie"></i> <span id="about-title">About Me</span></h2>
+                <p id="about-desc">I love learning new things and traveling to new places.</p>
+                <div class="about-tags" id="about-tags">
+                    STUDENT <span>•</span> DREAMER <span>•</span> ACHIEVER
+                </div>
+            </section>
+
+            <!-- Section Education -->
+            <section class="card">
+                <h2><i class="fas fa-graduation-cap"></i> <span id="edu-title">Education</span></h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Lycée - Sciences Mathématiques</h4>
+                        <p id="edu-desc">5th year of High School, studying Mathematical Sciences.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section L'Ahdaf (Goals) -->
+            <section class="card">
+                <h2><i class="fas fa-bullseye"></i> <span id="goals-title">My Goals</span></h2>
+                <ul class="goals-list" id="goals-list-content">
+                    <li><i class="fas fa-check-circle"></i> Continue my studies and get the Baccalaureate.</li>
+                    <li><i class="fas fa-check-circle"></i> Pursue studies in Automotive Engineering.</li>
+                    <li><i class="fas fa-check-circle"></i> Learn Cybersecurity.</li>
+                    <li><i class="fas fa-check-circle"></i> Continue my studies abroad (outside Morocco).</li>
+                </ul>
+            </section>
+
+            <!-- Signature Ltaht -->
+            <div class="portfolio-signature">
+                <p>Designed & Built with <i class="fas fa-heart" style="color: var(--accent);"></i> by <span id="sig-name">Badr Eddin Ouniceur</span></p>
+            </div>
+        </main>
+    </div>
+
+    <!-- L'CODE DIAL JAVASCRIPT -->
+    <script>
+        const langData = {
+            en: {
+                "header-role": "Student in Automotive Engineering & Computer Science",
+                "about-title": "About Me",
+                "about-desc": "I love learning new things and traveling to new places.",
+                "about-tags": "STUDENT <span>•</span> DREAMER <span>•</span> ACHIEVER",
+                "edu-title": "Education",
+                "edu-desc": "5th year of High School, studying Mathematical Sciences.",
+                "goals-title": "My Goals",
+                "goals-list-content": `
+                    <li><i class="fas fa-check-circle"></i> Continue my studies and get the Baccalaureate.</li>
+                    <li><i class="fas fa-check-circle"></i> Pursue studies in Automotive Engineering.</li>
+                    <li><i class="fas fa-check-circle"></i> Learn Cybersecurity.</li>
+                    <li><i class="fas fa-check-circle"></i> Continue my studies abroad (outside Morocco).</li>
+                `,
+                "contact-title": "Contact Info",
+                "social-title": "Social Media"
+            },
+            fr: {
+                "header-role": "Étudiant en Ingénierie Automobile et Informatique",
+                "about-title": "À propos de moi",
+                "about-desc": "J'aime apprendre de nouvelles choses et voyager vers de nouveaux endroits.",
+                "about-tags": "ÉTUDIANT <span>•</span> RÊVEUR <span>•</span> ACCOMPLISSEUR",
+                "edu-title": "Éducation",
+                "edu-desc": "5ème année de lycée, filière Sciences Mathématiques.",
+                "goals-title": "Mes Objectifs",
+                "goals-list-content": `
+                    <li><i class="fas fa-check-circle"></i> Poursuivre mes études et obtenir mon Baccalauréat.</li>
+                    <li><i class="fas fa-check-circle"></i> Continuer mes études en ingénierie automobile.</li>
+                    <li><i class="fas fa-check-circle"></i> Apprendre la cybersécurité.</li>
+                    <li><i class="fas fa-check-circle"></i> Continuer mes études à l'étranger (hors du Maroc).</li>
+                `,
+                "contact-title": "Coordonnées",
+                "social-title": "Réseaux Sociaux"
+            },
+            darija: {
+                "header-role": "Talib f l'Handasa d'Sayarat w l'Informatique",
+                "about-title": "Chkon Ana",
+                "about-desc": "Ki3jebni nt3lem 7wayj jdad w nsafer l blays jdad.",
+                "about-tags": "TALIB <span>•</span> 7ALAM <span>•</span> MOTAWAJIH",
+                "edu-title": "Masira Dirasiya",
+                "edu-desc": "L'3am lkhamss f lycée, kan9ra 3olom Riyadiya.",
+                "goals-title": "L'Ahdaf Diali",
+                "goals-list-content": `
+                    <li><i class="fas fa-check-circle"></i> Nkeml 9rayti w njib l'Bac.</li>
+                    <li><i class="fas fa-check-circle"></i> Nkeml 9rayti f handasat tonobilat.</li>
+                    <li><i class="fas fa-check-circle"></i> Nt3lem la cybersécurité.</li>
+                    <li><i class="fas fa-check-circle"></i> Nkeml 9rayti bra l'Maghrib.</li>
+                `,
+                "contact-title": "Ma3lomat Tawasol",
+                "social-title": "Mawa9i3 Tawasol"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const translations = langData[lang];
+            for (let key in translations) {
+                let element = document.getElementById(key);
+                if (element) {
+                    element.innerHTML = translations[key];
+                }
+            }
+        }
+    </script>
+</body>
+</html>
